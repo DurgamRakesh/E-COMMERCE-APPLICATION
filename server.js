@@ -18,14 +18,14 @@ const __dirname = path.dirname(__filename)
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname,'../e-commerce-frontend/build')))
+app.use(express.static(path.join(__dirname,'./e-commerce-frontend/build')))
 
 app.use('/api/auth',authRoute);
 app.use('/api/category',categoryRoutes);
 app.use('/api/product',productRoutes);
 
 app.use('*',(req,res) => {
-    res.sendFile(path.join(__dirname,'../e-commerce-frontend/bulid'))
+    res.sendFile(path.join(__dirname,'./e-commerce-frontend/bulid'))
 })
 const PORT = process.env.PORT || 8080;
 
